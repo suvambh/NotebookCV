@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% if data["Informations personnelles"]["Nom"] %}
+            {{ data["Informations personnelles"]["Nom"] }} - CV
+        {% else %}
+            CV
+        {% endif %}
+    </title>
+    <link rel="stylesheet" href="../templates/{{ theme_css if theme_css else 'style.css' }}">
+</head>
+<body>
+    <div class="page">
+        {% set info = data.get("Informations personnelles", {}) %}
+        {% set contact = data.get("Contact", {}) %}
+        {% set resume = data.get("Résumé", "") %}
+        {% set competences = data.get("Compétences", {}) %}
+        {% set experience = data.get("Expérience", {}) %}
+        {% set projets = data.get("Projets", {}) %}
+        {% set formation = data.get("Formation", {}) %}
+        {% set certifications = data.get("Certifications", {}) %}
+
+        <header class="header">
+            <div class="header-left">
+                {% if info.get("Nom") %}
+                <h1>{{ info.get("Nom") }}</h1>
+                {% endif %}
+
+                {% if info.get("Titre") %}
+                <p class="headline">{{ info.get("Titre") }}</p>
+                {% endif %}
+
+                <div class="contact">
+                    {% set basic_items = [] %}
+                    {% if contact.get("Email") %}{% set _ = basic_items.append(contact.get("Email")) %}{% endif %}
+                    {% if contact.get("Téléphone") %}{% set _ = basic_items.append(contact.get("Téléphone")) %}{% endif %}
+                    {% if info.get("Localisation") %}{% set _ = basic_items.append(info.get("Localisation")) %}{% endif %}
+
+                    {% if basic_items %}
+                    <div class="contact-line">{{ basic_items | join(" | ") }}</div>
+                    {% endif %}
+
+                    {% if contact.get("LinkedIn") %}
+                    <div class="contact-line">
+                        <img src="{{ data.assets.linkedin_icon }}" class="social-icon" width="10" height="10" alt="">
+                        <span>{{ contact.get("LinkedIn") }}</span>
+                    </div>
+                    {% endif %}
+
+                    {% if contact.get("GitHub") %}
+                    <div class="contact-line">
+                        <img src="{{ data.assets.github_icon }}" class="social-icon" width="10" height="10" alt="">
+                        <span>{{ contact.get("GitHub") }}</span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if info.get("Photo") %}
+            <div class="header-right">
+                <img src="{{ info.get('Photo') }}" class="profile-pic" alt="Photo de profil">
+            </div>
+            {% endif %}
+
+            <div class="clear"></div>
+        </header>
+
+        {% if resume %}
+        <section class="section">
+            <h2>Résumé</h2>
+            <p class="summary">{{ resume }}</p>
+        </section>
+        {% endif %}
+
+        {% if formation %}
+        <section class="section">
+            <h2>Formation</h2>
+            {% for diplome, edu in formation.items() %}
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-left">
+                        <h3>{{ diplome }}</h3>
+
+                        {% set edu_subline = [] %}
+                        {% if edu.get("Institution") %}{% set _ = edu_subline.append(edu.get("Institution")) %}{% endif %}
+                        {% if edu.get("Localisation") %}{% set _ = edu_subline.append(edu.get("Localisation")) %}{% endif %}
+
+                        {% if edu_subline %}
+                        <p class="subline">{{ edu_subline | join(" · ") }}</p>
+                        {% endif %}
+                    </div>
+
+                    {% if edu.get("Année") %}
+                    <div class="entry-right">
+                        {{ edu.get("Année") }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% if experience %}
+        <section class="section">
+            <h2>Expérience</h2>
+            {% for poste_complet, job in experience.items() %}
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-left">
+                        <h3>{{ poste_complet }}</h3>
+
+                        {% set job_subline = [] %}
+                        {% if job.get("Localisation") %}{% set _ = job_subline.append(job.get("Localisation")) %}{% endif %}
+
+                        {% if job_subline %}
+                        <p class="subline">{{ job_subline | join(" · ") }}</p>
+                        {% endif %}
+                    </div>
+
+                    {% if job.get("Durée") %}
+                    <div class="entry-right">
+                        {{ job.get("Durée") }}
+                    </div>
+                    {% endif %}
+                </div>
+
+                {% if job.get("Technologies") %}
+                <p class="meta-line"><strong>Technologies :</strong> {{ job.get("Technologies") }}</p>
+                {% endif %}
+
+                {% set details = job.get("Détail", []) %}
+                {% if details %}
+                <ul class="bullets">
+                    {% for item in details %}
+                        {% if item and item | trim %}
+                        <li>{{ item }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% if projets %}
+        <section class="section">
+            <h2>Projets</h2>
+            {% for nom_projet, projet in projets.items() %}
+            <div class="entry">
+                <div class="entry-header">
+                    <div class="entry-left">
+                        <h3>{{ nom_projet }}</h3>
+                        {% if projet.get("Technologies") %}
+                        <p class="subline">{{ projet.get("Technologies") }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% set details = projet.get("Détail", []) %}
+                {% if details %}
+                <ul class="bullets">
+                    {% for item in details %}
+                        {% if item and item | trim %}
+                        <li>{{ item }}</li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+
+        {% if competences %}
+        <section class="section">
+            <h2>Compétences techniques</h2>
+            <div class="skills-list">
+                {% for categorie, elements in competences.items() %}
+                    {% set valid_items = [] %}
+                    {% for item in elements %}
+                        {% if item and item | trim %}
+                            {% set _ = valid_items.append(item) %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if categorie or valid_items %}
+                    <p>
+                        {% if categorie %}<strong>{{ categorie }} :</strong>{% endif %}
+                        {% if valid_items %} {{ valid_items | join(", ") }}{% endif %}
+                    </p>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if certifications %}
+        <section class="section">
+            <h2>Certifications</h2>
+            {% for nom_certif, cert in certifications.items() %}
+            <div class="entry compact-entry">
+                <div class="entry-header">
+                    <div class="entry-left">
+                        <h3>{{ nom_certif }}</h3>
+                        {% if cert.get("Émetteur") %}
+                        <p class="subline">{{ cert.get("Émetteur") }}</p>
+                        {% endif %}
+                    </div>
+
+                    {% if cert.get("Année") %}
+                    <div class="entry-right">
+                        {{ cert.get("Année") }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "NotebookCV"
+  site-url: "https://suvambh.github.io/NotebookCV"
+  description: ""
+  repo-branch: main
+  repo-url: "https://github.com/suvambh/NotebookCV"
