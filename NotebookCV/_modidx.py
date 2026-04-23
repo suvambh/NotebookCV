@@ -6,6 +6,11 @@ d = { 'settings': { 'branch': 'main',
                 'git_url': 'https://github.com/suvambh/NotebookCV',
                 'lib_path': 'NotebookCV'},
   'syms': { 'NotebookCV.core': { 'NotebookCV.core.add_bullet_to_container': ('core.html#add_bullet_to_container', 'NotebookCV/core.py'),
+                                 'NotebookCV.core.fix_asset_paths': ('core.html#fix_asset_paths', 'NotebookCV/core.py'),
+                                 'NotebookCV.core.fix_photo_path': ('core.html#fix_photo_path', 'NotebookCV/core.py'),
+                                 'NotebookCV.core.html_to_pdf': ('core.html#html_to_pdf', 'NotebookCV/core.py'),
                                  'NotebookCV.core.markdown_to_nested_dict': ('core.html#markdown_to_nested_dict', 'NotebookCV/core.py'),
                                  'NotebookCV.core.new_subsection_container': ('core.html#new_subsection_container', 'NotebookCV/core.py'),
-                                 'NotebookCV.core.parse_bullet_line': ('core.html#parse_bullet_line', 'NotebookCV/core.py')}}}
+                                 'NotebookCV.core.parse_bullet_line': ('core.html#parse_bullet_line', 'NotebookCV/core.py'),
+                                 'NotebookCV.core.render_cv_html': ('core.html#render_cv_html', 'NotebookCV/core.py'),
+                                 'NotebookCV.core.split_lines': ('core.html#split_lines', 'NotebookCV/core.py')}}}
