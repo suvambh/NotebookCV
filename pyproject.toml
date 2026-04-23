@@ -15,7 +15,11 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
 ]
-dependencies = []
+dependencies = [
+    "fastcore",
+    "jinja2",
+    "weasyprint"
+]
 
 [project.urls]
 Repository = "https://github.com/suvambh/NotebookCV"
