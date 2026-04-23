@@ -8,5 +8,4 @@ d = { 'settings': { 'branch': 'main',
   'syms': { 'NotebookCV.core': { 'NotebookCV.core.add_bullet_to_container': ('core.html#add_bullet_to_container', 'NotebookCV/core.py'),
                                  'NotebookCV.core.markdown_to_nested_dict': ('core.html#markdown_to_nested_dict', 'NotebookCV/core.py'),
                                  'NotebookCV.core.new_subsection_container': ('core.html#new_subsection_container', 'NotebookCV/core.py'),
-                                 'NotebookCV.core.parse_bullet_line': ('core.html#parse_bullet_line', 'NotebookCV/core.py'),
-                                 'NotebookCV.core.split_lines': ('core.html#split_lines', 'NotebookCV/core.py')}}}
+                                 'NotebookCV.core.parse_bullet_line': ('core.html#parse_bullet_line', 'NotebookCV/core.py')}}}
