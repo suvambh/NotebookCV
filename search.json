@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "CV Markdown Rules (v1 — EN/FR)",
+    "section": "",
+    "text": "source\n\nsplit_lines\n\ndef split_lines(\n    markdown:str\n)-&gt;list:\n\nCall self as a function.\n\nsplit_lines(example_markdown_fr)[:10]\n\n['# Informations personnelles',\n '- Nom: Suvam Bhattacharya',\n '- Titre: Data Scientist | Data Analytics | Scientific Computing',\n '- Localisation: France',\n '- Photo: ../static/photo.jpeg',\n '',\n '# Résumé',\n 'Data scientist spécialisé en ingénierie des données et modélisation, avec une forte expérience en Python, SQL et environnements cloud. Conception de pipelines robustes et reproductibles, avec un accent sur l’automatisation, la scalabilité et la qualité des données.',\n '',\n '# Contact']\n\n\n\nsource\n\n\nparse_bullet_line\n\ndef parse_bullet_line(\n    line:str\n)-&gt;tuple:\n\nParse a bullet line.\nReturns: - (‘Nom’, ‘CV Special19’) for: - Nom: CV Special19 - (None, ‘Python’) for: - Python\n\nsource\n\n\nadd_bullet_to_container\n\ndef add_bullet_to_container(\n    container:dict | list, key:str | None, value:str\n)-&gt;dict | list:\n\nAdd a parsed bullet to either a dict or a list.\nRules: - key:value bullets belong in dicts - plain bullets belong in lists - repeated dict keys become lists\n\nsource\n\n\nnew_subsection_container\n\ndef new_subsection_container(\n    first_bullet_key:str | None\n)-&gt;dict | list:\n\nDecide subsection container type from the first bullet encountered.\n\nsource\n\n\nmarkdown_to_nested_dict\n\ndef markdown_to_nested_dict(\n    markdown:str\n)-&gt;dict:\n\nConvert CV markdown into a nested dictionary using only its structure.\nRules: - # Section -&gt; top-level key - ## Subsection -&gt; nested key under current section - Plain text directly under # Section -&gt; stored as string - - key: value -&gt; dictionary entry - - item -&gt; list entry - repeated - key: value -&gt; list of values - repeated ## subsection titles -&gt; become a list\n\nsource\n\n\nrender_cv_html\n\ndef render_cv_html(\n    data:dict, template_name:str='cv_fr.html', theme_css:str='cv_fr.css'\n)-&gt;str:\n\nCall self as a function.\n\nsource\n\n\nhtml_to_pdf\n\ndef html_to_pdf(\n    html:str, output_path:str='../output/cv.pdf'\n):\n\nCall self as a function.\n\nimport os\nprint(os.getcwd())\n\n/home/runner/work/NotebookCV/NotebookCV\n\n\n\n#html = render_cv_html(parsed_markdown)\n#html_to_pdf(html)\n\n\nsource\n\n\nfix_photo_path\n\ndef fix_photo_path(\n    data:dict\n)-&gt;dict:\n\nCall self as a function.\n\nsource\n\n\nfix_asset_paths\n\ndef fix_asset_paths(\n    data:dict\n)-&gt;dict:\n\nCall self as a function.\n\nhtml = render_cv_html(parsed_markdown)\nhtml_to_pdf(html)\n\n{'Informations personnelles': {'Nom': 'Suvam Bhattacharya', 'Titre': 'Data Scientist | Data Analytics | Scientific Computing', 'Localisation': 'France', 'Photo': 'file:///home/svm/PycharmProjects/PythonProject/NotebookCV/static/photo.jpeg'}, 'Résumé': 'Data scientist spécialisé en ingénierie des données et modélisation, avec une forte expérience en Python, SQL et environnements cloud. Conception de pipelines robustes et reproductibles, avec un accent sur l’automatisation, la scalabilité et la qualité des données.', 'Contact': {'Email': 'xxx@gmail.com', 'Téléphone': '+xxxx', 'LinkedIn': 'https://www.linkedin.com/in/xxxxx/', 'GitHub': 'https://github.com/xxxxx'}, 'Compétences': {'Langages': ['Python', 'SQL', 'Bash', 'MATLAB'], 'Cloud & DevOps': ['AWS', 'Terraform', 'EKS', 'CI/CD', 'GitLab CI', 'Slurm'], 'Data Engineering': ['ETL (PostgreSQL, MySQL, Power BI, Tableau, Talend)', 'Data Warehousing', 'Modélisation des données', 'Qualité des données'], 'Machine Learning': ['Machine Learning', 'ARIMA, SARIMA', 'NLP, LLM', 'Deeplearning']}, 'Expérience': {'Ingénieur Data / Cloud @ Eolen AS+': {'Durée': '2024', 'Localisation': 'Bruyères-le-Châtel', 'Technologies': 'AWS, Terraform, EKS, Slurm, GitLab CI, Bash', 'Détail': ['Mise en place de pipelines CI/CD pour le déploiement d’environnements de calcul distribués.', 'Conception de workflows reproductibles pour le traitement de données à grande échelle.', 'Automatisation de tâches critiques via scripts Bash pour améliorer la productivité des équipes.', 'Optimisation de l’utilisation des ressources de calcul et de stockage sur infrastructure cloud.']}, 'Data Scientist Freelance': {'Durée': '2023', 'Localisation': '', 'Technologies': 'ARIMA, SARIMA, Machine Learning, AWS', 'Détail': ['Développement de modèles de prévision de rupture de stock basés sur des séries temporelles.', 'Conception de pipelines de données et mise en place d’un data warehouse sur AWS.', 'Analyse des résultats et contribution à la prise de décision stratégique.']}, 'Enseignant en Informatique @ I.U.T.': {'Durée': '2019 - 2021', 'Localisation': 'Orsay', 'Technologies': 'POO, algorithmes avancés', 'Détail': ['Enseignement de la programmation orientée objet et des structures algorithmiques.', 'Encadrement de projets étudiants et accompagnement pédagogique.']}, 'Doctorant en Physique @ LPS': {'Durée': '2018 - 2022', 'Localisation': 'Orsay', 'Technologies': 'Python, modélisation, simulation numérique', 'Détail': ['Analyse de données scientifiques complexes en Python.', 'Modélisation et simulation numérique de systèmes physiques à haute dimension.', 'Développement d’outils d’analyse et d’interprétation des résultats expérimentaux.', 'Thèse : https://theses.hal.science/tel-03577251/']}, 'Stagiaire de recherche @ CNRS – Thales': {'Durée': 'févr. 2018 - août 2018', 'Localisation': 'Palaiseau', 'Technologies': 'MATLAB, physique expérimentale', 'Détail': [\"Étude du gaz d'électrons bidimensionnel dans le groupe d'Albert Fert.\", 'Réalisation d’expériences et simulations numériques sous MATLAB.', 'Contribution à une publication scientifique : https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adma.202102102']}}, 'Projets': {'Communauté IA & Mentorat': {'Technologies': 'IA, mentoring, debugging, communauté', 'Détail': ['Animation d’une communauté Discord dédiée à l’intelligence artificielle.', 'Accompagnement d’étudiants en data science (debugging, compréhension des concepts).', 'Transmission de bonnes pratiques en résolution de problèmes et structuration du raisonnement.']}, 'Pratiques de pleine conscience & leadership': {'Technologies': 'Effortless Mindfulness', 'Détail': ['Facilitation de sessions EM orientées clarté mentale et prise de décision.', 'Application des principes de présence et d’attention dans des contextes techniques et collaboratifs.']}}, 'Formation': {'Diplôme d’ingénieur': {'Institution': 'École Polytechnique', 'Localisation': 'Palaiseau', 'Année': '2014 - 2018'}, 'Masters Data Management': {'Institution': 'Datascientest', 'Localisation': 'Paris', 'Année': '2023'}}, 'Certifications': {'AWS Certified Solutions Architect – Associate': {'Émetteur': 'AWS', 'Année': ''}, 'Applied Machine Learning in Python': {'Émetteur': 'University of Michigan', 'Année': ''}, 'Introduction to Data Science in Python': {'Émetteur': 'University of Michigan', 'Année': ''}, 'Machine Learning in Production': {'Émetteur': 'DeepLearning.AI', 'Année': ''}}, 'assets': {'linkedin_icon': 'file:///home/svm/PycharmProjects/PythonProject/NotebookCV/static/linkedin-svgrepo-com.svg', 'github_icon': 'file:///home/svm/PycharmProjects/PythonProject/NotebookCV/static/logo-github-svgrepo-com.svg'}} cv_fr.css\n\n\n\nprint(\"contact-social\" in html)\nPath(\"debug.html\").write_text(html, encoding=\"utf-8\")\n\nFalse\n\n\n18016",
+    "crumbs": [
+      "CV Markdown Rules (v1 — EN/FR)"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NotebookCV",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation.",
+    "crumbs": [
+      "NotebookCV"
+    ]
+  },
+  {
+    "objectID": "index.html#developer-guide",
+    "href": "index.html#developer-guide",
+    "title": "NotebookCV",
+    "section": "Developer Guide",
+    "text": "Developer Guide\nIf you are new to using nbdev here are some useful pointers to get you started.\n\nInstall NotebookCV in Development mode\n# make sure NotebookCV package is installed in development mode\n$ pip install -e .\n\n# make changes under nbs/ directory\n# ...\n\n# compile to have changes apply to NotebookCV\n$ nbdev_prepare",
+    "crumbs": [
+      "NotebookCV"
+    ]
+  },
+  {
+    "objectID": "index.html#usage",
+    "href": "index.html#usage",
+    "title": "NotebookCV",
+    "section": "Usage",
+    "text": "Usage\n\nInstallation\nInstall latest from the GitHub repository:\n$ pip install git+https://github.com/suvambh/NotebookCV.git\nor from conda\n$ conda install -c suvambh NotebookCV\nor from pypi\n$ pip install NotebookCV\n\n\nDocumentation\nDocumentation can be found hosted on this GitHub repository’s pages. Additionally you can find package manager specific guidelines on conda and pypi respectively.",
+    "crumbs": [
+      "NotebookCV"
+    ]
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "NotebookCV",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2",
+    "crumbs": [
+      "NotebookCV"
+    ]
+  }
+]
