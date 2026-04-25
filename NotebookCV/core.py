@@ -5,7 +5,7 @@ __all__ = ['example_markdown_fr', 'parsed_markdown', 'split_lines', 'parse_bulle
            'new_subsection_container', 'markdown_to_nested_dict', 'render_cv_html', 'html_to_pdf', 'fix_photo_path',
            'fix_asset_paths']
 
-# %% ../nbs/00_core.ipynb #9f33892c
+# %% ../nbs/00_core.ipynb #0481c053
 example_markdown_fr='''# Informations personnelles
 - Nom: Suvam Bhattacharya
 - Titre: Data Scientist | Data Analytics | Scientific Computing
@@ -13,11 +13,11 @@ example_markdown_fr='''# Informations personnelles
 - Photo: ../static/photo.jpeg
 
 # Résumé
-Data scientist spécialisé en ingénierie des données et modélisation, avec une forte expérience en Python, SQL et environnements cloud. Conception de pipelines robustes et reproductibles, avec un accent sur l’automatisation, la scalabilité et la qualité des données.
+Data scientist spécialisé en modélisation statistique et machine learning, avec une forte expertise en ingénierie des données. Expérience en Python, SQL, DevOps et environnements cloud. Conception de modèles prédictifs et de pipelines scalables et reproductibles, avec un accent sur l’automatisation, la robustesse et la fiabilité des résultats.
 
 # Contact
-- Email: xxx@gmail.com
-- Téléphone: +xxxx
+- Email: fmahuyac@gmail.com
+- Téléphone: +33663299291
 - LinkedIn: https://www.linkedin.com/in/xxxxx/
 - GitHub: https://github.com/xxxxx
 
@@ -55,71 +55,68 @@ Data scientist spécialisé en ingénierie des données et modélisation, avec u
 ## Ingénieur Data / Cloud @ Eolen AS+
 - Durée: 2024
 - Localisation: Bruyères-le-Châtel
-- Technologies: AWS, Terraform, EKS, Slurm, GitLab CI, Bash
-- Détail: Mise en place de pipelines CI/CD pour le déploiement d’environnements de calcul distribués.
-- Détail: Conception de workflows reproductibles pour le traitement de données à grande échelle.
-- Détail: Automatisation de tâches critiques via scripts Bash pour améliorer la productivité des équipes.
+- Technologies: AWS, Terraform, EKS, Slurm, GitLab CI, Bash, Python
+- Détail: Mise en place de pipelines CI/CD pour le déploiement d’environnements de simulation haute performance distribués.
+- Détail: Conception de workflows reproductibles (migration, maintainance, troubleshooting) pour le traitement de données à grande échelle (Big Data).
 - Détail: Optimisation de l’utilisation des ressources de calcul et de stockage sur infrastructure cloud.
+- Détail: Contribution à la réponse à des appels d’offres.
 
 ## Data Scientist Freelance
 - Durée: 2023
 - Localisation:
-- Technologies: ARIMA, SARIMA, Machine Learning, AWS
-- Détail: Développement de modèles de prévision de rupture de stock basés sur des séries temporelles.
-- Détail: Conception de pipelines de données et mise en place d’un data warehouse sur AWS.
-- Détail: Analyse des résultats et contribution à la prise de décision stratégique.
+- Technologies: Machine Learning, AWS, Python, SQL
+- Détail: Développement de modèles de prévision de rupture de stock basés sur des séries temporelles (SARIMA/Prophet).
+- Détail: Conception de pipelines de données et mise en place d’un data warehouse sur AWS/Talend.
+- Détail: Analyse des résultats de ventes et contribution à la prise de décision stratégique PowerBI/Excel.
 
 ## Enseignant en Informatique @ I.U.T.
 - Durée: 2019 - 2021
 - Localisation: Orsay
 - Technologies: POO, algorithmes avancés
 - Détail: Enseignement de la programmation orientée objet et des structures algorithmiques.
-- Détail: Encadrement de projets étudiants et accompagnement pédagogique.
+- Détail: Encadrement de projets étudiants data et accompagnement pédagogique.
 
 ## Doctorant en Physique @ LPS
 - Durée: 2018 - 2022
 - Localisation: Orsay
-- Technologies: Python, modélisation, simulation numérique
-- Détail: Analyse de données scientifiques complexes en Python.
-- Détail: Modélisation et simulation numérique de systèmes physiques à haute dimension.
-- Détail: Développement d’outils d’analyse et d’interprétation des résultats expérimentaux.
+- Technologies: Python, numpy, scikit-learn, matplotlib, pytorch
+- Détail: Analyse statistique de données expérimentales complexes (prétraitement, filtrage, réduction de bruit).
+- Détail: Modélisation de systèmes quantiques et ajustement de modèles à partir de données expérimentales.
+- Détail: Application de méthodes de machine learning (régression, classification) pour l’extraction de motifs et l’interprétation des données.
+- Détail: Développement d’outils d’analyse et de visualisation sous Jupyter Notebook pour l’exploration et la validation des résultats.
+- Détail: Validation expérimentale et évaluation des modèles (robustesse, reproductibilité, interprétabilité).
 - Détail: Thèse : https://theses.hal.science/tel-03577251/
 
 ## Stagiaire de recherche @ CNRS – Thales
 - Durée: févr. 2018 - août 2018
 - Localisation: Palaiseau
 - Technologies: MATLAB, physique expérimentale
-- Détail: Étude du gaz d'électrons bidimensionnel dans le groupe d'Albert Fert.
-- Détail: Réalisation d’expériences et simulations numériques sous MATLAB.
-- Détail: Contribution à une publication scientifique : https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adma.202102102
+- Détail: Analyse de données expérimentales et traitement statistique de mesures physiques.
+- Détail: Étude du gaz d’électrons bidimensionnel au sein du groupe de Albert Fert (Nobel `07).
+- Détail: https://advanced.onlinelibrary.wiley.com/doi/abs/10.1002/adma.202102102
 
-# Projets
+# Activités complémentaires
 ## Communauté IA & Mentorat
-- Technologies: IA, mentoring, debugging, communauté
 - Détail: Animation d’une communauté Discord dédiée à l’intelligence artificielle.
 - Détail: Accompagnement d’étudiants en data science (debugging, compréhension des concepts).
 - Détail: Transmission de bonnes pratiques en résolution de problèmes et structuration du raisonnement.
 
-## Pratiques de pleine conscience & leadership
-- Technologies: Effortless Mindfulness
-- Détail: Facilitation de sessions EM orientées clarté mentale et prise de décision.
-- Détail: Application des principes de présence et d’attention dans des contextes techniques et collaboratifs.
-
-# Formation
-## Diplôme d’ingénieur
+# Éducation
+## Diplôme d’ingénieur (Le Cycle Ingénieur polytechnicien)
 - Institution: École Polytechnique
 - Localisation: Palaiseau
 - Année: 2014 - 2018
-
-## Masters Data Management
-- Institution: Datascientest
-- Localisation: Paris
-- Année: 2023
+- Spécialisation : Physique, mathematique, informatique
 
 # Certifications
+
+## Data Management
+- Émetteur: Datascientest, Paris
+- Année: 2023
+
 ## AWS Certified Solutions Architect – Associate
 - Émetteur: AWS
-- Année:
+- Année: 2024
 
 ## Applied Machine Learning in Python
 - Émetteur: University of Michigan
@@ -133,17 +130,17 @@ Data scientist spécialisé en ingénierie des données et modélisation, avec u
 - Émetteur: DeepLearning.AI
 - Année: '''
 
-# %% ../nbs/00_core.ipynb #df824703
+# %% ../nbs/00_core.ipynb #73ec91a8
 import re
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 
 
-# %% ../nbs/00_core.ipynb #ed5d2232
+# %% ../nbs/00_core.ipynb #6d56b8ab
 def split_lines(markdown: str) -> list[str]:
     return markdown.replace("\r\n", "\n").replace("\r", "\n").split("\n")
 
-# %% ../nbs/00_core.ipynb #86e933c7
+# %% ../nbs/00_core.ipynb #e90c0593
 def parse_bullet_line(line: str) -> tuple[str | None, str]:
     """
     Parse a bullet line.
@@ -164,7 +161,7 @@ def parse_bullet_line(line: str) -> tuple[str | None, str]:
 
     raise ValueError(f"Line is not a bullet line: {line}")
 
-# %% ../nbs/00_core.ipynb #c3888aa9
+# %% ../nbs/00_core.ipynb #e7c4a304
 def add_bullet_to_container(container: dict | list, key: str | None, value: str) -> dict | list:
     """
     Add a parsed bullet to either a dict or a list.
@@ -192,7 +189,7 @@ def add_bullet_to_container(container: dict | list, key: str | None, value: str)
 
     raise ValueError("Cannot add key:value bullet to list container")
 
-# %% ../nbs/00_core.ipynb #805760f1
+# %% ../nbs/00_core.ipynb #63f2cefa
 def new_subsection_container(first_bullet_key: str | None) -> dict | list:
     """
     Decide subsection container type from the first bullet encountered.
@@ -201,7 +198,7 @@ def new_subsection_container(first_bullet_key: str | None) -> dict | list:
         return []
     return {}
 
-# %% ../nbs/00_core.ipynb #2d75c42d
+# %% ../nbs/00_core.ipynb #32540bf3
 def markdown_to_nested_dict(markdown: str) -> dict:
     """
     Convert CV markdown into a nested dictionary using only its structure.
@@ -320,11 +317,11 @@ def markdown_to_nested_dict(markdown: str) -> dict:
 
     return result
 
-# %% ../nbs/00_core.ipynb #39e46ad2
+# %% ../nbs/00_core.ipynb #81bf7b4b
 parsed_markdown = markdown_to_nested_dict(example_markdown_fr)
 parsed_markdown
 
-# %% ../nbs/00_core.ipynb #0bf87b7f
+# %% ../nbs/00_core.ipynb #d4517d21
 def render_cv_html(data: dict, template_name: str = "cv_fr.html", theme_css: str = "cv_fr.css") -> str:
     #templates_dir = Path("templates/")
     templates_dir = Path("..") / "templates"
@@ -334,11 +331,10 @@ def render_cv_html(data: dict, template_name: str = "cv_fr.html", theme_css: str
     )
 
     template = env.get_template(template_name)
-    print(data,theme_css)
     html = template.render(data=data, theme_css=theme_css)
     return html
 
-# %% ../nbs/00_core.ipynb #5e51e1bb
+# %% ../nbs/00_core.ipynb #b7858eb9
 from weasyprint import HTML, CSS
 
 def html_to_pdf(html: str, output_path: str = "../output/cv.pdf"):
@@ -348,7 +344,7 @@ def html_to_pdf(html: str, output_path: str = "../output/cv.pdf"):
     )
 
 
-# %% ../nbs/00_core.ipynb #f7fa58b3
+# %% ../nbs/00_core.ipynb #704d42ae
 print(parsed_markdown["Informations personnelles"]["Photo"])
 
 from pathlib import Path
@@ -365,7 +361,7 @@ fix_photo_path(parsed_markdown)
 print(parsed_markdown["Informations personnelles"]["Photo"])
 
 
-# %% ../nbs/00_core.ipynb #8cbfb3f8
+# %% ../nbs/00_core.ipynb #04f77270
 from pathlib import Path
 
 def fix_asset_paths(data: dict) -> dict:
@@ -379,5 +375,5 @@ def fix_asset_paths(data: dict) -> dict:
     return data
 
 
-# %% ../nbs/00_core.ipynb #c1ad57a7
+# %% ../nbs/00_core.ipynb #fe28f1fd
 fix_asset_paths(parsed_markdown)
